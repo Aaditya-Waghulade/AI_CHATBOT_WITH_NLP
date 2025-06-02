@@ -1,0 +1,205 @@
+{
+  "intents": [
+    {
+      "tag": "greetings",
+      "patterns": [
+        "hi", "hello", "hey", "hey there", "hey bro", "what's up?",
+        "greetings", "hello there", "how is it going", "good morning",
+        "good evening", "yo", "howdy", "hiya", "how’s your day?",
+        "hi chatbot", "hello bot", "hi there", "how are you?"
+      ],
+      "responses": [
+        "Hello! How can I assist you today Mr.Aaditya sir📝?",
+        "Hi Bro, what's up?🖐🏻",
+        "Yo! Aaditya is in the house 😎",
+        "Welcome back, Mr.Aaditya. Let’s get to work!",
+        "Hey! Need any help today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye", "goodbye", "see you later", "catch you later", "talk to you soon",
+        "see ya", "bye for now", "I have to go", "later", "peace out"
+      ],
+      "responses": [
+        "Goodbye! Have a great day Mr.Aaditya 👋",
+        "Catch you later! 🫡",
+        "See you soon!",
+        "Bye-bye, take care!",
+        "Farewell, sir. Come back soon!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks", "thank you", "thanks a lot", "much appreciated",
+        "I appreciate it", "thank you so much", "cheers", "many thanks"
+      ],
+      "responses": [
+        "You're welcome, Mr.Aaditya!",
+        "Anytime! 😊",
+        "Glad I could help.",
+        "No problem at all!",
+        "Happy to help!"
+      ]
+    },
+    {
+      "tag": "ask_help",
+      "patterns": [
+        "can you help me?", "I need assistance", "help me", "please help",
+        "I need help", "could you help me?", "assist me", "support me"
+      ],
+      "responses": [
+        "Of course! What do you need help with, sir?",
+        "I'm here to help. Tell me what’s bothering you.",
+        "Happy to assist. Go ahead!",
+        "Sure, Aaditya! What can I do for you?",
+        "Let me know how I can support you."
+      ]
+    },
+    {
+      "tag": "about_bot",
+      "patterns": [
+        "who are you?", "what can you do?", "what are you?", "tell me about yourself",
+        "are you a bot?", "what do you do?", "how do you work?"
+      ],
+      "responses": [
+        "I’m a custom chatbot trained by Aaditya Waghulade 🤖.",
+        "I can assist you with various tasks and answer your questions.",
+        "I'm your friendly AI assistant, here to help anytime!",
+        "Think of me as your digital buddy with a brain!",
+        "I'm a chatbot built with Python and machine learning!"
+      ]
+    },
+    {
+      "tag": "jokes",
+      "patterns": [
+        "tell me a joke", "make me laugh", "say something funny",
+        "got any jokes?", "funny stuff please"
+      ],
+      "responses": [
+        "Why did the developer go broke? Because he used up all his cache! 😄",
+        "Why do Java developers wear glasses? Because they can’t C# 🤓",
+        "I told my computer I needed a break, and now it won’t stop sending vacation ads!",
+        "Debugging: Removing the needles from the haystack. 😆"
+      ]
+    },
+    {
+      "tag": "creator",
+      "patterns": [
+        "who made you?", "who created you?", "who built you?", 
+        "who is your creator?", "your developer?"
+      ],
+      "responses": [
+        "I was built by the amazing Mr.Aaditya Waghulade 👨‍💻!",
+        "Aaditya sir is my creator. All hail the coder! 🚀",
+        "I was handcrafted with love and code by Aaditya.",
+        "Mr.Aaditya made me using Python and some AI magic! ✨"
+      ]
+    }
+     {
+      "tag": "sql_select",
+      "patterns": [
+        "what is select in sql", "explain select statement",
+        "how to fetch data in sql", "how does select work", "sql select example"
+      ],
+      "responses": [
+        "`SELECT` is used to fetch data from a database. Example:\n```sql\nSELECT * FROM students;\n```"
+      ]
+    },
+    {
+      "tag": "sql_where",
+      "patterns": [
+        "how to filter rows in sql", "where clause example", "what is the where clause",
+        "sql filter condition", "how does where work"
+      ],
+      "responses": [
+        "`WHERE` is used to filter records. Example:\n```sql\nSELECT * FROM employees WHERE age > 25;\n```"
+      ]
+    },
+    {
+      "tag": "sql_join",
+      "patterns": [
+        "what is join in sql", "explain inner join", "left join vs right join",
+        "sql join example", "how to join tables"
+      ],
+      "responses": [
+        "SQL JOIN is used to combine rows from two or more tables.\nExample:\n```sql\nSELECT a.name, b.salary FROM employee a JOIN payroll b ON a.id = b.emp_id;\n```"
+      ]
+    },
+    {
+      "tag": "sql_group_by",
+      "patterns": [
+        "group by in sql", "how to group data in sql", "sql group example", 
+        "explain group by", "grouping rows"
+      ],
+      "responses": [
+        "`GROUP BY` groups rows with the same values. Example:\n```sql\nSELECT department, COUNT(*) FROM employees GROUP BY department;\n```"
+      ]
+    },
+    {
+      "tag": "sql_syntax_error",
+      "patterns": [
+        "sql syntax error", "unexpected token", "what is syntax error in sql",
+        "how to fix sql syntax error", "sql query not working"
+      ],
+      "responses": [
+        "A SQL syntax error usually means there’s a typo or incorrect structure in your query.\nCheck for missing commas, quotes, or keywords.\nExample:\n❌ `SELEC * FROM users;`\n✅ `SELECT * FROM users;`"
+      ]
+    },
+    {
+      "tag": "sql_null_error",
+      "patterns": [
+        "null value error in sql", "sql null constraint error", 
+        "can't insert null", "sql insert error due to null", "not null constraint failed"
+      ],
+      "responses": [
+        "This error occurs when you try to insert `NULL` into a column with `NOT NULL` constraint.\nSolution: Provide a valid value or allow NULLs.\nExample:\n```sql\nALTER TABLE students MODIFY name VARCHAR(50) NULL;\n```"
+      ]
+    },
+    {
+      "tag": "sql_primary_key",
+      "patterns": [
+        "what is primary key", "primary key example", "why use primary key", 
+        "sql primary key explained", "primary key syntax"
+      ],
+      "responses": [
+        "A `PRIMARY KEY` uniquely identifies each row in a table.\nExample:\n```sql\nCREATE TABLE students (id INT PRIMARY KEY, name VARCHAR(100));\n```"
+      ]
+    },
+    {
+      "tag": "sql_foreign_key",
+      "patterns": [
+        "what is foreign key", "foreign key example", "how foreign key works",
+        "foreign key vs primary key", "sql foreign key usage"
+      ],
+      "responses": [
+        "A `FOREIGN KEY` links two tables together.\nExample:\n```sql\nCREATE TABLE orders (id INT, user_id INT, FOREIGN KEY (user_id) REFERENCES users(id));\n```"
+      ]
+    },
+    {
+      "tag": "sql_limit",
+      "patterns": [
+        "what is limit in sql", "how to get top 10 rows", "limit rows in sql", 
+        "sql limit example", "fetch first n rows"
+      ],
+      "responses": [
+        "`LIMIT` is used to restrict the number of rows returned.\nExample:\n```sql\nSELECT * FROM students LIMIT 5;\n```"
+      ]
+    },
+    {
+      "tag": "sql_order_by",
+      "patterns": [
+        "sort data in sql", "order by example", "how to use order by", 
+        "sql ascending descending", "sql order rows"
+      ],
+      "responses": [
+        "`ORDER BY` sorts the result set. Example:\n```sql\nSELECT * FROM students ORDER BY age DESC;\n```"
+      ]
+    },
+    {
+        
+    }
+  ]
+}
