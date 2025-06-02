@@ -5,8 +5,7 @@
       "patterns": [
         "hi", "hello", "hey", "hey there", "hey bro", "what's up?",
         "greetings", "hello there", "how is it going", "good morning",
-        "good evening", "yo", "howdy", "hiya", "how’s your day?",
-        "hi chatbot", "hello bot", "hi there", "how are you?"
+        "good evening", "yo", "howdy", "hiya", "how’s your day?"
       ],
       "responses": [
         "Hello! How can I assist you today Mr.Aaditya sir📝?",
@@ -199,7 +198,7 @@
       ]
     },
     {
-        
+
     }
   ]
 }
