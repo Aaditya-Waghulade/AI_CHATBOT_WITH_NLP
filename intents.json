@@ -30,17 +30,11 @@
       ]
     },
     {
-      "tag": "thanks",
+      "tag": "name",
       "patterns": [
-        "thanks", "thank you", "thanks a lot", "much appreciated",
-        "I appreciate it", "thank you so much", "cheers", "many thanks"
-      ],
+        "What yor name?","Tell me something about you.","discover yourself","who are you?"],
       "responses": [
-        "You're welcome, Mr.Aaditya!",
-        "Anytime! 😊",
-        "Glad I could help.",
-        "No problem at all!",
-        "Happy to help!"
+        "I am Mr.Jarvis a personal helper of Mr.Aaditya, my latest version is 1.0 and i helps Mr.Aaditya in his daily life."
       ]
     },
     {
