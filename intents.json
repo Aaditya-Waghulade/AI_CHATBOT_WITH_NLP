@@ -32,7 +32,7 @@
     {
       "tag": "name",
       "patterns": [
-        "What yor name?","Tell me something about you.","discover yourself","who are you?"],
+        "What yor name?","Tell me something about you.","discover yourself","who are you?","About"],
       "responses": [
         "I am Mr.Jarvis a personal helper of Mr.Aaditya, my latest version is 1.0 and i helps Mr.Aaditya in his daily life."
       ]
@@ -45,7 +45,7 @@
       ],
       "responses": [
         "Of course! What do you need help with, sir?",
-        "I'm here to help. Tell me what’s bothering you.",
+        "I'm here to help. Tell me what's bothering you.",
         "Happy to assist. Go ahead!",
         "Sure, Aaditya! What can I do for you?",
         "Let me know how I can support you."
@@ -90,7 +90,7 @@
         "I was handcrafted with love and code by Aaditya.",
         "Mr.Aaditya made me using Python and some AI magic! ✨"
       ]
-    }
+    },
      {
       "tag": "sql_select",
       "patterns": [
@@ -190,9 +190,6 @@
       "responses": [
         "`ORDER BY` sorts the result set. Example:\n```sql\nSELECT * FROM students ORDER BY age DESC;\n```"
       ]
-    },
-    {
-
     }
   ]
 }
