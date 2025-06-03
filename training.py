@@ -1,4 +1,3 @@
-#We will load the data from intents.json here and train the data
 #1. Common Py libs
 import json
 import random
@@ -48,8 +47,18 @@ for intent in intents['intents']: # 1.intents = json.loads(data) 2. intents['int
 # B) TRAINING THE DATA
 #6. Lemmatizing the words
 lemmatizer = WordNetLemmatizer()
-for word in words:
-    if word not in ignore_letters:
-        words = [lemmatizer.lemmatize(word)]
+words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
+#
 #Lemmatizing the each word by iterating the words list because it is now sorted. then entering in list words and the word is not matching with ignoring letters then add that word in words[] by using lemmatizer
-print(words)
+#now removes duplicates from the words list by using set
+words = sorted(set(words))
+#----------------________-NO ERROR TILL HERE___________-------------
+
+#7. creating pickle file for words and classes list 
+pickle.dump(words , open('words.pkl','wb'))#Putting words list in words.pkl 
+pickle.dump(classes,open('classes.pkl','wb'))#Putting classes list in classes.pkl
+
+#8. Creating a training and testing data
+'we cant feed these words directly to the neural network so first we have to make them in numerical value '
+
+
