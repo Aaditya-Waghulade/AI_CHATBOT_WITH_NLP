@@ -61,4 +61,4 @@ pickle.dump(classes,open('classes.pkl','wb'))#Putting classes list in classes.pk
 #8. Creating a training and testing data
 'we cant feed these words directly to the neural network so first we have to make them in numerical value '
 
-#
+
