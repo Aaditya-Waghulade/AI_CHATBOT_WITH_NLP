@@ -58,6 +58,18 @@ words = sorted(set(words))
 pickle.dump(words , open('words.pkl','wb'))#Putting words list in words.pkl 
 pickle.dump(classes,open('classes.pkl','wb'))#Putting classes list in classes.pkl
 
-#8. Creating a training and testing data
 'we cant feed these words directly to the neural network so first we have to make them in numerical value '
+"We are using BAG OF WORDS FOR THIS"
+#8. Creating a bag of words
+training = []
+output_empty = [0]*len(classes)
+
+#9. Looping through each document in the documents list
+for document in documents: #Because we have to make whole document in numerical value
+    bag = []#Creating a bag for each document which contain the words and their frequency
+    word_patterns = document[0] # Because document[0] is the word list as we declare it on line number 40
+    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in word_patterns] #This will lemmatize the word which are in word_patterns in document[0] and convert it in lower case
+    
+
+
 
