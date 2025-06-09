@@ -43,7 +43,7 @@ for intent in intents['intents']: # 1.intents = json.loads(data) 2. intents['int
 #print(documents)
 #So word_list is the "patterns" or questions from intents
 
-# B) TRAINING THE DATA
+# B) TRAINING THE DATA (PRE_PROCESSING)
 #6. Lemmatizing the words list
 lemmatizer = WordNetLemmatizer()
 words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
@@ -81,7 +81,8 @@ for document in documents:
 
     #Last Append everythin in training
     training.append([bag,output_row])
-
+#Shuffling the training data
+random.shuffle(training)
 
 
 
