@@ -32,7 +32,7 @@ words = [] #For Tokens
 documents = []
 ignore_letters = ['?',',','.','!']#for storing some letters which are not really important
 
-#5. Looping through each intent in the data and then tokenize its "patterns" 
+#5. Looping through each intent in the data and then tokenize its "patterns or question" 
 for intent in intents['intents']: # 1.intents = json.loads(data) 2. intents['intents'] =  'intents.json'==>{intents :[]}
     for pattern in intent["patterns"]:
         word_list = nltk.word_tokenize(pattern)
@@ -41,17 +41,17 @@ for intent in intents['intents']: # 1.intents = json.loads(data) 2. intents['int
         if  intent['tag'] not in classes:
             classes.append(intent['tag'])
 #print(documents)
-
-#LOADING DATA IS DONE
+#So word_list is the "patterns" or questions from intents
 
 # B) TRAINING THE DATA
-#6. Lemmatizing the words
+#6. Lemmatizing the words list
 lemmatizer = WordNetLemmatizer()
 words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
 #
 #Lemmatizing the each word by iterating the words list because it is now sorted. then entering in list words and the word is not matching with ignoring letters then add that word in words[] by using lemmatizer
 #now removes duplicates from the words list by using set
 words = sorted(set(words))
+classes = sorted(set(classes))
 #----------------________-NO ERROR TILL HERE___________-------------
 
 #7. creating pickle file for words and classes list 
@@ -65,11 +65,24 @@ training = []
 output_empty = [0]*len(classes)
 
 #9. Looping through each document in the documents list
-for document in documents: #Because we have to make whole document in numerical value
+#Because we have to make whole document in numerical value
+for document in documents: 
     bag = []#Creating a bag for each document which contain the words and their frequency
-    word_patterns = document[0] # Because document[0] is the word list as we declare it on line number 40
+    word_patterns = document[0] # Because document[0] is the word_list as we declare it on line number 40
     word_patterns = [lemmatizer.lemmatize(word.lower()) for word in word_patterns] #This will lemmatize the word which are in word_patterns in document[0] and convert it in lower case
+    for word in words:
+        if word in word_patterns:
+            bag.append(1)
+        else:
+            bag.append(0)
     
+    output_row = list(output_empty)#copying output_empty to another variable
+    output_row[classes.index(document[1])] = 1
+
+    #Last Append everythin in training
+    training.append([bag,output_row])
+
+
 
 
 
