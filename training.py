@@ -81,8 +81,14 @@ for document in documents:
 
     #Last Append everythin in training
     training.append([bag,output_row])
-#Shuffling the training data
+#10.Shuffling the training data
 random.shuffle(training)
+#11.Converting itself into numpy array for Feeding to neural network
+training = np.array(training)
+
+# 12. dividing data into x and y training
+train_x = list(training[:,0])
+train_y = list(training[:,1])
 
 
 
