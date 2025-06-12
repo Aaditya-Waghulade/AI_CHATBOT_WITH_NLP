@@ -85,13 +85,18 @@ for document in documents:
     training.append([bag,output_row])
 #10.Shuffling the training data
 random.shuffle(training)
-#11.Converting itself into numpy array for Feeding to neural network
-training = np.array(training)
 
-# 12. dividing data into x and y training
-train_x = list(training[:,0])                   
-train_y = list(training[:,1]) 
+# 11. dividing data into x and y training
+train_x=[]
+train_y=[] 
 
+for feature,label in training:
+    train_x.append(feature)
+    train_y.append(label)
+
+#Converting them to an array
+train_x = np.array(train_x)
+train_y = np.array(train_y)    
 
 # C)  NEURAL NETWORK MODEL BUILDUP
 
