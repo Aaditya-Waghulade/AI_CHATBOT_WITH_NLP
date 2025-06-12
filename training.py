@@ -59,7 +59,7 @@ pickle.dump(words , open('words.pkl','wb'))#Putting words list in words.pkl
 pickle.dump(classes,open('classes.pkl','wb'))#Putting classes list in classes.pkl
 'we cant feed these words directly to the neural network so first we have to make them in numerical value '
 "We are using BAG OF WORDS FOR THIS"
-#----------------________-NO ERROR TILL HERE___________-------------
+
 #8. Creating a bag of words
 training = []
 output_empty = [0]*len(classes)
@@ -99,16 +99,17 @@ train_y = np.array(train_y)
 # C)  NEURAL NETWORK MODEL BUILDUP
 
 model = Sequential()
-model.add(Dense(128, input_shape=len(train_x[0]),activation='relu'))#Feeding Bag of words to the model which is our 'train_x'
+model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(64, activation = 'relu'))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]),activation = 'softmax'))
 
-sgd = SGD(lr = 0.01,decay =1e-6,momentum=0.9,nesterov =True)
+#----------------________-NO ERROR TILL HERE___________-------------
+sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 
 model.compile(loss='categorical_crossentropy',optimizer = sgd , metrics = ['accuracy'])
 
-model.fit(np.array(train_x), np.array(train_y),epochs=200, batch_size=5,verbose = 1)
-model.save('chatbot_model.model')
+model.fit(np.array(train_x), np.array(train_y),epochs=200, batch_size=5,verbose = 1)#Feeding Bag of words to the model which is our 'train_x' and and 'train_y'
+model.save('chatbot_model.h5')
 print("done")
