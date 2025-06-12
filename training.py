@@ -43,21 +43,23 @@ for intent in intents['intents']: # 1.intents = json.loads(data) 2. intents['int
 #print(documents)
 #So word_list is the "patterns" or questions from intents
 
-# B) TRAINING THE DATA (PRE_PROCESSING)
+# B) PREPARE TRAINING DATA (PRE_PROCESSING)
 #6. Lemmatizing the words list
 lemmatizer = WordNetLemmatizer()
 words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_letters]
 #
 #Lemmatizing the each word by iterating the words list because it is now sorted. then entering in list words and the word is not matching with ignoring letters then add that word in words[] by using lemmatizer
 #now removes duplicates from the words list by using set
-words = sorted(set(words))
-classes = sorted(set(classes))
+
+words = sorted(set(words))#Patterns
+classes = sorted(set(classes)) #Tags
+
+
 #----------------________-NO ERROR TILL HERE___________-------------
 
 #7. creating pickle file for words and classes list 
 pickle.dump(words , open('words.pkl','wb'))#Putting words list in words.pkl 
 pickle.dump(classes,open('classes.pkl','wb'))#Putting classes list in classes.pkl
-
 'we cant feed these words directly to the neural network so first we have to make them in numerical value '
 "We are using BAG OF WORDS FOR THIS"
 #8. Creating a bag of words
@@ -87,9 +89,16 @@ random.shuffle(training)
 training = np.array(training)
 
 # 12. dividing data into x and y training
-train_x = list(training[:,0])
-train_y = list(training[:,1])
+train_x = list(training[:,0])                   
+train_y = list(training[:,1]) 
 
 
+# C)  NEURAL NETWORK MODEL BUILDUP
+
+model = Sequential()
+model.add(Dense(128), input_shape=len(train_x[0]),activation='relu')#Feeding Bag of words to the model which is our 'train_x'
+model.add(Dropout(0.5))
+model.add(Dense(64), acitvation = 'relu')
+model.add(Dropout(0.5))
 
 
