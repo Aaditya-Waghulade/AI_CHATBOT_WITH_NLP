@@ -96,7 +96,7 @@ train_y = list(training[:,1])
 # C)  NEURAL NETWORK MODEL BUILDUP
 
 model = Sequential()
-model.add(Dense(128), input_shape=len(train_x[0]),activation='relu')#Feeding Bag of words to the model which is our 'train_x'
+model.add(Dense(128, input_shape=len(train_x[0]),activation='relu'))#Feeding Bag of words to the model which is our 'train_x'
 model.add(Dropout(0.5))
 model.add(Dense(64), acitvation = 'relu')
 model.add(Dropout(0.5))
