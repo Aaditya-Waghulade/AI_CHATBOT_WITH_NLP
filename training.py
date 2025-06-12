@@ -54,14 +54,12 @@ words = [lemmatizer.lemmatize(word) for word in words if word not in ignore_lett
 words = sorted(set(words))#Patterns
 classes = sorted(set(classes)) #Tags
 
-
-#----------------________-NO ERROR TILL HERE___________-------------
-
 #7. creating pickle file for words and classes list 
 pickle.dump(words , open('words.pkl','wb'))#Putting words list in words.pkl 
 pickle.dump(classes,open('classes.pkl','wb'))#Putting classes list in classes.pkl
 'we cant feed these words directly to the neural network so first we have to make them in numerical value '
 "We are using BAG OF WORDS FOR THIS"
+#----------------________-NO ERROR TILL HERE___________-------------
 #8. Creating a bag of words
 training = []
 output_empty = [0]*len(classes)
@@ -103,7 +101,7 @@ train_y = np.array(train_y)
 model = Sequential()
 model.add(Dense(128, input_shape=len(train_x[0]),activation='relu'))#Feeding Bag of words to the model which is our 'train_x'
 model.add(Dropout(0.5))
-model.add(Dense(64, acitvation = 'relu'))
+model.add(Dense(64, activation = 'relu'))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]),activation = 'softmax'))
 
