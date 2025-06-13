@@ -21,4 +21,24 @@ def tokenizing_input(sentence):
     return sentence_words
  
 
-#2. NOW CREATING SENTENCE INTO BAG OF WORDS (List of 1 and 0 which will indicates whether that word is Avaialble in the Bag Or Not)
+#2. NOW CREATING SENTENCE INTO BAG OF WORDS
+def bag_of_words(sentence):
+    sentence_words = tokenizing_input(sentence)
+    bag = [0]*len(words) #Creating a list of zeros with the same length as the words lists
+
+    for w in sentence_words:
+        for i, word in enumerate(words): #means for each word in the words list
+            if word == w:
+                #assign 1 to the index of the word
+                bag[i] = 1
+    return np.array(bag)
+
+
+#3. PREDICTING THE INTENT OF THE USER
+def predict_class(sentence):
+    bow = bag_of_words(sentence)
+    res = model.predict(np.array(np.array([bow])))[0] #predicting the output of the model which will be on 0th index
+    ERROR_THRESHOLD = 0.25
+    results = [[i,r] for i,r in enumerate(res) if r > ERROR_THRESHOLD ]
+    results.sort(key=lambda x:x[1], reverse=True) #reversing the list so that the highest value is at the top
+    #x[1] because we want to sort based on the second element of the list from the results list
