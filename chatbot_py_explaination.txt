@@ -1,0 +1,19 @@
+1.Importing Several libraries
+
+2.Loading Pickle Files which are made
+3.Loading Model.h5 for prediction of the sentence
+
+----------------------------------------------------------------------------------------------------------------
+
+    USER INPUT > CONVERT TO NUMERICAL > FEED TO MODEL PREDICTION > PREDICTED WILL BE DISPLAYED
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+4. Making bunch of funcitons 
+4.1 Function for cleaning up or TOKENIZE and LEMMATIZE the sentences entered by the user 
+4.2 Function for getting Bag Of Words:
+    List of 1 and 0 which will indicates whether that word is Avaialble in the Bag Or Not.
+4.3 Funciton for predicting a class or patterns base on the user input
+4.4 
