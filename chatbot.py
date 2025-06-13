@@ -49,3 +49,8 @@ def predict_class(sentence):
             'intent': classes[r[0]], 'probability':str(r[1])
         })
     return return_list
+#Why do we use enumerate(res) here?
+'''We want to:
+Identify which classes have a probability greater than the threshold (ERROR_THRESHOLD = 0.25).
+
+Keep both the class index and its probability, so we can later map it to a class name.'''
