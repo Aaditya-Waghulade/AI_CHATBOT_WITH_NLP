@@ -39,6 +39,13 @@ def predict_class(sentence):
     bow = bag_of_words(sentence)
     res = model.predict(np.array(np.array([bow])))[0] #predicting the output of the model which will be on 0th index
     ERROR_THRESHOLD = 0.25
-    results = [[i,r] for i,r in enumerate(res) if r > ERROR_THRESHOLD ]
-    results.sort(key=lambda x:x[1], reverse=True) #reversing the list so that the highest value is at the top
+    results = [[i,r] for i,r in enumerate(res) if r > ERROR_THRESHOLD ] #getting the index and the value (Probability) of the result
+    results.sort(key=lambda x:x[1], reverse=True) #reversing the list so that the highest probability is at the top
     #x[1] because we want to sort based on the second element of the list from the results list
+
+    return_list = []
+    for r in res:
+        return_list.append({
+            'intent': classes[r[0]], 'probability':str(r[1])
+        })
+    return return_list
