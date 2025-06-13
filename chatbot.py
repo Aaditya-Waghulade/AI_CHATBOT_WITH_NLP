@@ -54,3 +54,21 @@ def predict_class(sentence):
 Identify which classes have a probability greater than the threshold (ERROR_THRESHOLD = 0.25).
 
 Keep both the class index and its probability, so we can later map it to a class name.'''
+
+
+#4. Getting response
+def get_response(intents_list,intents_json):
+    tag = intents_list[0]['intent']
+    list_of_intents = intents_json['intents']
+    for i in list_of_intents:
+        if i['tag'] == tag:
+            result = random.choice(i['response'])
+            break
+    return result
+
+while(True):
+    message = input("You: ")
+    ints = predict_class(message)
+    res = get_response(ints,intents)
+    print("JARVIS: ", res)
+
