@@ -1,7 +1,8 @@
 import json 
 import pickle
 import numpy as np
-
+import random
+import nltk
 from tensorflow.keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 
@@ -44,9 +45,10 @@ def predict_class(sentence):
     #x[1] because we want to sort based on the second element of the list from the results list
 
     return_list = []
-    for r in res:
+    for r in results:
         return_list.append({
-            'intent': classes[r[0]], 'probability':str(r[1])
+            'intent': classes[r[0]],
+            'probability':str(r[1])
         })
     return return_list
 #Why do we use enumerate(res) here?
@@ -62,7 +64,7 @@ def get_response(intents_list,intents_json):
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if i['tag'] == tag:
-            result = random.choice(i['response'])
+            result = random.choice(i['responses']) #responses from intents.json
             break
     return result
 
